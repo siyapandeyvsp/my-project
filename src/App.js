@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// Dependencies
+import React from "react";
+import { generateDate } from "./utils/calender";
 
-function App() {
+export default function App() {
+  console.log(generateDate());
+  const days = []
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="w-96 h-96 grid grid-cols-7">
+      {generateDate().map(({ date, currentMonth, today }, index) => {
+        return (
+          <div>
+            <h1>{date.date()}</h1>
+          </div>
+        );
+      })}
     </div>
   );
 }
-
-export default App;
